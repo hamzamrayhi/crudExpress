@@ -1,0 +1,30 @@
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">id Stock</th>
+            <th scope="col">quantite</th>
+            <th scope="col">nom</th>
+            <th scope="col">edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let us of readData'>
+            <th scope="row"></th>
+            <th scope="row">{{us.idStock}}</th>
+            <td>{{us.quantite}}</td>
+            <td>{{us.nom}}</td>
+            <td><button class="btn btn-sm btn-danger"(click)="deleteid(us.idStock)">delete</button>
+              &nbsp;
+            <a [routerLink]="['/create',us.idStock]" class="btn btn-sm btn-success">update</a>
+            </td>
+
+           
+          </tr>
+          
+        </tbody>
+      </table>
+
+
+</div>>

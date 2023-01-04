@@ -1,0 +1,24 @@
+<div class ="container">
+<form [formGroup]="stockForm" >
+<div class="col-lg4" >
+<input type="texte" formControlName="quantite" placeholder="quantite">
+</div>
+
+<div class="col-lg4">
+    <input type="texte"formControlName="nom" placeholder="nom">
+    </div>
+
+    <div class="col-lg4" *ngIf="!getparamidStock" (click)="stockSubmit()">
+        <button class="btn btn-primary btn-sm">create</button>
+        </div>
+        &nbsp;
+
+        <div class="col-lg4" *ngIf="getparamidStock"(click)="stockUpdate()">
+            <button class="btn btn-dark btn-sm">Update</button>
+            </div>
+   
+
+</form>
+
+
+</div>

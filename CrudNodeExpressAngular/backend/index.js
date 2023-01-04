@@ -87,10 +87,10 @@ app.get('/stock/:idStock',(req,res)=>{
 
 app.put('/stock/:idStock',(req,res)=>{
     console.log(req.body,'updateData');
-    let mID = req.body.idStock;
+    let gID = req.params.idStock;
     let quantite = req.body.quantite;
     let nom = req.body.nom;
-    let qr =`update stock set quantite=${quantite},nom=${nom} where idStock=${mID}`;
+    let qr =`update stock set quantite='${quantite}',nom='${nom}' where idStock=${gID}`;
     db.query(qr,(err,result)=>{
         if (err){console.log(err);}
         
@@ -99,7 +99,7 @@ app.put('/stock/:idStock',(req,res)=>{
         });
 
 });
-});
+})
 
 app.delete('/stock/:idStock',(req,res)=>{
     let qId=req.params.idStock;
