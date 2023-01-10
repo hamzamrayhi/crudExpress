@@ -2,10 +2,17 @@ const express=require('express');
 const bodyparser=require('body-parser');
 const cors=require ('cors');
 const mysql=require('mysql2')
+const path = require ('path');
+const Sequelize = require("sequelize");
+const http=require('http');
+
 
 const app=express();
-app.use(cors());
-app.use(bodyparser.json());
+ app.use(cors());
+ app.use(bodyparser.json());
+
+
+
 
 
 
@@ -18,11 +25,20 @@ app.use(bodyparser.json());
     port:3306
 });
 
+// const publicDirectory=path.join(__dirname,'./public');
+// app.use(express.static(publicDirectory));
+// app.use(express.urlencoded({extended:false}));
+// app.use(express.json());
+
+// app.set('view engine','hbs');
+
 
 db.connect(err=>{
     if (err) {console.log(err,'err');}
     console.log('database connected');
 })
+
+
 
 
 app.get('/stock',(req,res)=>{
